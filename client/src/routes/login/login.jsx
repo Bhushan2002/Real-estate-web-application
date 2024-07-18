@@ -8,10 +8,9 @@ function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const {updateUser} = useContext(AuthContext);
-
-
-
   const navigate = useNavigate();
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);

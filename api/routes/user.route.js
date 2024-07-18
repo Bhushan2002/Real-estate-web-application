@@ -38,14 +38,14 @@ router.get("/:id", verifyToken, async (req,res) => {
 });
 
 router.put("/:id", verifyToken, async (req,res) => {
-    const id = req.params.id;
+  const id = req.params.id;
   const tokenUserId = req.userId;
-  const { password, avatar, ...inputs } = req.body;
+  const {  password ,avatar, ...inputs } = req.body;
+
 
   if (id !== tokenUserId) {
     return res.status(403).json({ message: "Not Authorized!" });
   }
-
   let updatedPassword = null;
   try {
     if (password) {
@@ -60,8 +60,8 @@ router.put("/:id", verifyToken, async (req,res) => {
         ...(avatar && { avatar }),
       },
     });
-    res.status(200).json(updatedUser)
-    
+    const {password: userPassword , ...rest} = updatedUser;
+    res.status(200).json(rest)
   } catch (err) {
     console.log(err);
     res.send(500).json({ message: "Failed to get user!" }); 
