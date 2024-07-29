@@ -1,7 +1,8 @@
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useState } from "react";
+import apiRequest from "../../lib/apiRequest";
 
 function Register() {
 
@@ -37,7 +38,7 @@ const handleSubmit = async (e)=>{
     <div className="register">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <h1>Create an Account</h1>
+          <h1 className="title">Create an Account</h1>
           <input name="username" type="text" placeholder="Username" />
           <input name="email" type="text" placeholder="Email" />
           <input name="password" type="password" placeholder="Password" />
@@ -48,12 +49,11 @@ const handleSubmit = async (e)=>{
         </form>
       </div>
       <div className="imgContainer">
-        <img src="/bg.png" alt="" />
+        <img src="/registor-bg.png" alt="" />
       </div>
     </div>
   );
 }
-import { useState } from "react";
-import apiRequest from "../../lib/apiRequest";
+
 
 export default Register;

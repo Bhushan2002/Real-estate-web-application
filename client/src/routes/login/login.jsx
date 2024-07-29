@@ -40,7 +40,7 @@ function Login() {
     <div className="login">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <h1>Welcome back</h1>
+          <h1 className="text">Welcome Back</h1>
           <input name="username"required minLength={3} maxLength={20} type="text" placeholder="Username" />
           <input name="password" type="password" required   placeholder="Password" />
           <button disabled={isLoading}>Login</button>
@@ -48,9 +48,7 @@ function Login() {
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
       </div>
-      <div className="imgContainer">
-        <img src="/building.png" alt="" />
-      </div>
+      
     </div>
   );
 }

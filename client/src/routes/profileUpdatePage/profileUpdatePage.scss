@@ -8,6 +8,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .title{
+      font-size: 60px;
+        font-family: "Playfair Display", serif;
+        background: -webkit-linear-gradient(#133b8d,#2e50a5 , #6b7fc0 );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include lg {
+          font-size: 35px;
+        }
+    }
     form {
       display: flex;
       flex-direction: column;
@@ -41,7 +51,7 @@
 
   .sideContainer {
     flex: 2;
-    background-color: #fcf5f3;
+    // height: 400px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -49,37 +59,22 @@
     justify-content: center;
 
     .avatar{
-      width: 50%;
+      width: 400px;
       object-fit: cover;
     }
     img {
-      margin-top: 50px;
-      // height: 100;
-      width: 100;
-      position: absolute;
+      height: 400px;
+      // width: 100px;
+      // position: absolute;
       right: 0;
+      
+
 
       @include lg {
         width: 105%;
       }
     }
-    .profilePic{
-      height: 50;
-
-    }
-    .custom-file-upload {
-      display: inline-block;
-      padding: 10px 20px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 5px;
-      border: 1px solid #4CAF50;
-      transition: background-color 0.3s, color 0.3s;
-  }
-
-  .custom-file-upload:hover {
-    background-color: #45a049;
-}
+  
+    
   }
 }

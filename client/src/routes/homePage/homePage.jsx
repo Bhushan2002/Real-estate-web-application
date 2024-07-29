@@ -6,9 +6,6 @@ import animationFile from "../../assets/house.json";
 import Lottie from "lottie-react"
 
 function HomePage() {
-
-  
-  // const {view} = useLottie(options);
   const {currentUser}  =  useContext(AuthContext);
   console.log(currentUser)
   return (
@@ -42,7 +39,7 @@ function HomePage() {
       </div>
       <div className="imgContainer">
       <Lottie animationData={animationFile}/>
-        {/* <img src="/city-skyline-concept-illustration.png" alt=""/> */}
+        
       </div>
     </div>
   );

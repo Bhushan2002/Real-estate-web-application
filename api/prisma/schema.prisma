@@ -15,5 +15,51 @@ model User{
   password String 
   avatar String? 
   createAt DateTime @default(now())
+  post post[]
 }
+model post{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String 
+  price Int 
+  images String[] 
+  address String 
+  bathroom Int 
+  bedroom Int 
+  city String 
+  latitude String 
+  longitude String 
+  type Type
+  property Property
+  createAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+  postDetail PostDetail?
+}
+
+enum Type{
+  buy
+  rent
+}
+
+enum Property{
+  apartment
+  house
+  condo
+  land
+}
+
+model PostDetail{
+   id String @id @default(auto()) @map("_id") @db.ObjectId
+   desc String
+   utilities String?
+   pet String?
+   income String?
+   size Int?
+   school Int?
+   bus Int?
+   restaurant Int?
+   post post @relation(fields: [postId], references: [id] )
+   postId String @db.ObjectId @unique
+}
+
 // after making any changes in this file re-run " npx prisma db push "

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./profileUpdatePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
+import Lottie from "lottie-react";
+import animationFile  from "../../assets/profile-update.json";
+import UploadWidget from "../../components/upload/uploadWidget";
 
 
 
@@ -10,6 +13,7 @@ function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
 
   const [error, setError]= useState("")
+  const [avatar, setAvatar]= useState([]);
   const navigate = useNavigate();
   
 
@@ -23,7 +27,7 @@ function ProfileUpdatePage() {
         username,
         email,
         password,
-        // avatar:avatar[0]
+        avatar
       });
       updateUser(res.data);
       navigate("/profile");
@@ -36,17 +40,8 @@ function ProfileUpdatePage() {
     <div className="profileUpdatePage">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          {/* <h1>Update Profile</h1>
-          <div className="profilePic">
-            <h4>upload profile picture</h4>
-            <img src="/noavatar.png" alt="" height={100} />
-            {/* <input
-              type="file"
-              className="custom-file-upload"
-              id="file-upload"
-              name="file"
-            /> 
-          </div> */}
+          <h1 className="title">Update Profile</h1>
+          
           <div className="item">
             <label htmlFor="username">Username</label>
             <input
@@ -74,7 +69,19 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="sideContainer">
-        <img src="/profile-bg.png" alt="" className="avatar" />
+        {/* <Lottie animationData={animationFile}/> */}
+        {/* <img src="/profile-bg.png" alt="" className="avatar" /> */}
+            <img className="avatar" src={ avatar[0] || currentUser.avatar ||"/noavatar.png"} alt="" />
+            <UploadWidget uwConfig={{
+              cloudName: "dmcnqvgkz",
+              uploadPreset: "estate",
+              multiple: false,
+              maxImageFileSize: 2000000,
+              folder: "avatars"
+            }}
+            setState={setAvatar}
+            />
+
       </div>
     </div>
   );

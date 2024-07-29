@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const {currentUser} = useContext(AuthContext);
-  // const user = true;
+
   return (
     <nav>
       <div className="left">
@@ -42,7 +42,7 @@ function Navbar() {
         )}
         <div className="menuIcon">
           <img
-            src="/menu.png"
+            src="/menu.png" 
             alt=""
             onClick={() => setOpen((prev) => !prev)}
           />
